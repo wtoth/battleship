@@ -12,3 +12,6 @@ class Square:
 
     def print_board(self):
         return f"square, ship: {self.ship}, attacked: {self.attacked}"
+    
+    def has_ship(self):
+        return self.ship
