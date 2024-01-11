@@ -18,15 +18,24 @@ def main():
                 orientation = input("Enter the orientation (v - vertical, h - horizontal)): ")
                 if (orientation == "h") or (orientation == "v"):
                     orientation_loop = False
-            placement_result = player_board.add_ship([int(row), int(col)], piece, orientation)
+            placement_result = player_board.add_ship([int(row), int(col)], piece, orientation) 
 
-    # computer_board = board_helpers.computer_automated_board_construction()
+    player_board.display_board()
+
+    computer_board = board_helpers.computer_automated_board_construction()
+    print("the computer has generated its board")
     
     #game loop
+    while True:
 
+        # add game logic here
 
-    pass
-
+        if computer_board.hits() >= 17:
+            print("You win!!! Congrats")
+            break
+        if player_board.hits() >= 17:
+            print("The computer wins :( better luck next time")
+            break
 
 if __name__ == "__main__":
     main()
