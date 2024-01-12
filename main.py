@@ -25,7 +25,8 @@ def main():
 
     computer_board = board_helpers.computer_board_construction(pieces)
     computer_board.display_board()
-    print("the computer has generated its board")
+    print("The computer has generated its board \n")
+
     
     #game loop
     while True:
@@ -35,7 +36,7 @@ def main():
             player_attack_row = input("Enter the row you want to attack: ")
             player_attack_col = input("Enter the column you want to attack: ")
             player_attack = computer_board.attack_square(int(player_attack_row) - 1, int(player_attack_col) - 1)
-
+        print("\n")
         if computer_board.hits >= sum(pieces):
             print("You win!!! Congrats")
             break
@@ -45,7 +46,7 @@ def main():
         while not computer_attack:
             board_attack_square = board_helpers.computer_attack()
             computer_attack = player_board.attack_square(board_attack_square[0], board_attack_square[1])
-
+        print("\n")
         if player_board.hits >= sum(pieces):
             print("The computer wins :( better luck next time")
             break

@@ -24,8 +24,19 @@ class Board:
                     temp_row.append("-")
             if len(temp_row) > 0:
                 display_board.append(temp_row)
+        i = 1
+        # 3 spaces to indent
+        print("   1 2 3 4 5 6 7 8 9 10")
         for row in display_board:
+            if i < 10:
+                # two spaces after the i to account for 10
+                print(f"{i}  ", end="")
+            else:
+               # one space after the i
+               print(f"{i} ", end="") 
             print(*row)
+            i += 1
+        print("\n")
 
     def add_ship(self, position, length, orientation):
         # make sure on board
