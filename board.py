@@ -65,7 +65,6 @@ class Board:
             # add the ship
             for i in range(position[0], bottom_square):
                 self.board_list[i][position[1]].add_ship()
-        
 
         elif orientation == "h":
             right_square = position[1] + length
@@ -78,8 +77,16 @@ class Board:
                 self.board_list[position[0]][i].add_ship()
         return True
 
-    def is_space_occupied(self):
-        pass
+    def attack_square(self, row, col):
+        result = self.board_list[row][col].attack()
+        if result[0] == False:
+            return False
+        elif result[1] == 1:
+            print("Hit!!!")
+            self.hits += 1
+        else:
+            print("Miss")
+        return True
 
 #board = Board()
 #board.display_board()

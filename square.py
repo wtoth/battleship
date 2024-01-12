@@ -15,3 +15,15 @@ class Square:
     
     def has_ship(self):
         return self.ship
+    
+    def attack(self):
+        if self.attacked == True:
+            print("This space has already been attacked")
+            return [False]
+        self.attacked = True
+        if self.ship == True:
+            return [True, 1]
+        else:
+            return [True, 0]
+        
+        

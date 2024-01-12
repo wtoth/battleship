@@ -23,5 +23,10 @@ def computer_board_construction():
             placement_result = board.add_ship([row, col], piece, orientation) 
     return board
 
-test_board = computer_board_construction()
-test_board.display_board()
+def computer_attack():
+    attack_row = randint(0,9)
+    attack_col = randint(0,9)
+    return [attack_row, attack_col]
+
+#test_board = computer_board_construction()
+#test_board.display_board()
