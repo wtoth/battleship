@@ -4,8 +4,7 @@ import board_helpers
 def main():
     #board construction
     player_board = Board()
-    # pieces = [5, 4, 3, 3, 2]
-    pieces = [2]
+    pieces = [5, 4, 3, 3, 2]
 
     #place pieces loop
     for piece in pieces:
@@ -24,7 +23,7 @@ def main():
     player_board.display_board()
 
     computer_board = board_helpers.computer_board_construction(pieces)
-    computer_board.display_board()
+    # computer_board.display_board()
     print("The computer has generated its board \n")
 
     
