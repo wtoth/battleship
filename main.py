@@ -4,7 +4,8 @@ import board_helpers
 def main():
     #board construction
     player_board = Board()
-    pieces = [5, 4, 3, 3, 2]
+    # pieces = [5, 4, 3, 3, 2]
+    pieces = [2]
 
     #place pieces loop
     for piece in pieces:
@@ -22,7 +23,8 @@ def main():
 
     player_board.display_board()
 
-    computer_board = board_helpers.computer_board_construction()
+    computer_board = board_helpers.computer_board_construction(pieces)
+    computer_board.display_board()
     print("the computer has generated its board")
     
     #game loop
@@ -32,18 +34,19 @@ def main():
         while not player_attack:
             player_attack_row = input("Enter the row you want to attack: ")
             player_attack_col = input("Enter the column you want to attack: ")
-            player_attack = player_board.attack_square(int(player_attack_row), int(player_attack_col))
+            player_attack = computer_board.attack_square(int(player_attack_row) - 1, int(player_attack_col) - 1)
 
-        if computer_board.hits() >= 17:
+        if computer_board.hits >= sum(pieces):
             print("You win!!! Congrats")
             break
 
         computer_attack = False
+        print("Computers attack")
         while not computer_attack:
             board_attack_square = board_helpers.computer_attack()
             computer_attack = player_board.attack_square(board_attack_square[0], board_attack_square[1])
 
-        if player_board.hits() >= 17:
+        if player_board.hits >= sum(pieces):
             print("The computer wins :( better luck next time")
             break
 
